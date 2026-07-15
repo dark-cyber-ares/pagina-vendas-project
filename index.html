@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Neuralis X - A Revolução do Grafeno no seu Pulso</title>
+  <meta name="description" content="O primeiro wearable construído com compósitos de grafeno. Experimente dissipação térmica de 99.9% e processamento de 10.2 THz."/>
+  
+  <!-- Habilitar classes de animação progressiva via JS o quanto antes para evitar flashes de conteúdo -->
+  <script>
+    document.documentElement.classList.add('js-enabled');
+  </script>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Configuração Customizada do Tailwind CSS -->
+  <script id="tailwind-config">
+    try {
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "on-primary": "#00363a",
+              "on-secondary-container": "#b7b5b4",
+              "on-secondary-fixed": "#1c1b1b",
+              "primary-fixed-dim": "#00dbe9",
+              "on-surface-variant": "#b9cacb",
+              "primary-container": "#00f0ff",
+              "on-secondary": "#313030",
+              "surface-container-highest": "#353534",
+              "secondary-container": "#474746",
+              "on-tertiary-fixed": "#1b1c1c",
+              "tertiary": "#f8f5f5",
+              "primary-fixed": "#7df4ff",
+              "surface-variant": "#353534",
+              "on-surface": "#e5e2e1",
+              "background": "#131313",
+              "on-tertiary": "#303030",
+              "surface-container-high": "#2a2a2a",
+              "surface": "#131313",
+              "outline": "#849495",
+              "inverse-primary": "#006970",
+              "surface-tint": "#00dbe9",
+              "surface-bright": "#3a3939",
+              "surface-container": "#201f1f",
+              "on-tertiary-fixed-variant": "#474747",
+              "on-primary-container": "#006970",
+              "outline-variant": "#3b494b",
+              "error": "#ffb4ab",
+              "on-primary-fixed-variant": "#004f54",
+              "secondary-fixed": "#e5e2e1",
+              "on-tertiary-container": "#5f5e5e",
+              "on-primary-fixed": "#002022",
+              "on-background": "#e5e2e1",
+              "primary": "#dbfcff",
+              "on-secondary-fixed-variant": "#474746",
+              "surface-dim": "#131313",
+              "tertiary-fixed-dim": "#c8c6c6",
+              "on-error-container": "#ffdad6",
+              "on-error": "#690005",
+              "surface-container-lowest": "#0e0e0e",
+              "inverse-on-surface": "#313030",
+              "tertiary-container": "#dbd9d8",
+              "tertiary-fixed": "#e4e2e1",
+              "inverse-surface": "#e5e2e1",
+              "secondary": "#c8c6c5",
+              "error-container": "#93000a",
+              "secondary-fixed-dim": "#c8c6c5"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "spacing": {
+              "margin-desktop": "64px",
+              "container-max": "1280px",
+              "gutter": "24px",
+              "unit": "8px",
+              "margin-mobile": "20px"
+            },
+            "fontFamily": {
+              "label-caps": ["JetBrains Mono"],
+              "body-md": ["Inter"],
+              "display-lg": ["Montserrat"],
+              "headline-lg-mobile": ["Montserrat"],
+              "headline-lg": ["Montserrat"]
+            },
+            "fontSize": {
+              "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+              "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+              "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+              "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+              "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    } catch(e) {}
+  </script>
+
+  <!-- Folha de estilos personalizados (fontes e efeitos visuais) -->
+  <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- Header & Navegação -->
+  <header class="sticky top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
+    <nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+      <a href="#" class="flex items-center gap-3">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+          <circle cx="18" cy="18" r="16" stroke="#00f0ff" stroke-width="0.8" opacity="0.2"/>
+          <circle cx="18" cy="18" r="14" stroke="#00f0ff" stroke-width="0.3" stroke-dasharray="2 3" opacity="0.4"/>
+          <ellipse cx="18" cy="18" rx="14" ry="4" stroke="#00f0ff" stroke-width="0.6" opacity="0.6" transform="rotate(-30 18 18)"/>
+          <ellipse cx="18" cy="18" rx="14" ry="4" stroke="#00f0ff" stroke-width="0.6" opacity="0.6" transform="rotate(30 18 18)"/>
+          <ellipse cx="18" cy="18" rx="14" ry="4" stroke="#00f0ff" stroke-width="0.6" opacity="0.6" transform="rotate(90 18 18)"/>
+          <path d="M18 2L20 8H16L18 2Z" fill="#00f0ff" opacity="0.4"/>
+          <path d="M18 34L16 28H20L18 34Z" fill="#00f0ff" opacity="0.4"/>
+          <path d="M2 18L8 16V20L2 18Z" fill="#00f0ff" opacity="0.4"/>
+          <path d="M34 18L28 20V16L34 18Z" fill="#00f0ff" opacity="0.4"/>
+          <circle cx="18" cy="18" r="3" fill="#00f0ff"/>
+          <circle cx="18" cy="18" r="5" stroke="#00f0ff" stroke-width="0.5" opacity="0.4" stroke-dasharray="1 1"/>
+        </svg>
+        <span class="font-display-lg text-headline-lg-mobile md:text-headline-lg font-extrabold tracking-tighter text-on-surface">NEURALIS X</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#recursos">Recursos</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#saude">Saúde</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#modelos">Modelos</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#especificacoes">Especificações</a>
+        <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-colors" href="#garantia">Garantia</a>
+      </div>
+      <button class="bg-primary-container text-on-primary-container font-label-caps text-label-caps px-6 py-2 rounded-lg hover:scale-105 transition-transform duration-300">
+        Compre Agora
+      </button>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <!-- Otimização: fetchpriority="high" adicionado para a imagem principal (LCP) -->
+        <img alt="Hero Background" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfWuFro8OKYpsXMpqBtx7sh647iE_afcfheBqvT-bi1R-zzlSQbUKeIIR0TZU-hMGRUrA3g_AZDQsixWxQT6d3Oo__IFgblI-i8NjapwyaC7O40uwb-4qerGZmH9hoiodavnLQaU6SZ-3ccLEvB7_ZcRRUC4SutTaNYjft9ltad0MM2BXB3KjNz7aCA4-1Ut645oUl3uo4IOiQVK1KL1gT8CnTHfyIr5z_p-Hw0UBSQdd1nIDXovPiFw" fetchpriority="high"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+      </div>
+      <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <div class="md:col-span-7 flex flex-col justify-center">
+          <span class="font-label-caps text-label-caps text-primary-container mb-4 hero-badge">DESEMPENHO ELITE</span>
+          <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight hero-text-shadow hero-title">Neuralis X: A Revolução do Grafeno no seu Pulso</h1>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-10 max-w-xl hero-desc">O primeiro wearable construído com compósitos de grafeno. Experimente uma dissipação térmica de 99.9% e processamento ultra-rápido de 10.2 THz em um design ultrafino e indestrutível.</p>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 hero-actions">
+            <div class="flex flex-col">
+              <span class="text-on-surface-variant line-through text-sm">De R$ 23.465,00</span>
+              <span class="text-primary-container font-bold text-3xl">Neuralis X Ultra - R$ 18.700,00</span>
+            </div>
+            <button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-lg font-bold text-lg hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all">
+              ADQUIRIR AGORA
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connectivity Section -->
+    <section class="py-24 relative overflow-hidden bg-surface-container-lowest" id="recursos">
+      <div class="glow-cyan absolute -right-48 top-0 w-96 h-96"></div>
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="order-2 md:order-1 relative animate-on-scroll">
+            <img alt="Connectivity Display" class="w-full h-auto rounded-3xl transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9q2nL3k3OXoKlvePxalB2lT2NyaHPwvrvXht3QfndJDEQGmEzIAOdPIwsFSyB23XK3Ksy56oQfpm55BRCyAEPbzwKEg9xvZaobDWx4OEHw8tlspm_AfOvSKltzReFXH65vdXZD4Vw3COe5udb0Ynu7kVrkMGSuBMmcf-dPDz0rvmM5kB6OUI7vgAOIHU5KO5mddWbpE40iUX3gxCoW92NzGxyVDG-VZcZxhT5PwobRn3N-E7D_5Ktxg" loading="lazy"/>
+            <div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl hidden md:block">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <span class="material-symbols-outlined text-white">chat</span>
+                </div>
+                <div>
+                  <p class="text-xs font-label-caps text-on-surface-variant">WhatsApp</p>
+                  <p class="text-sm font-bold">Lili: Queres ir jantar?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 animate-on-scroll">
+            <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">Nunca Perca o que Importa.</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-12">Mantenha-se conectado com o mundo ao seu redor sem precisar tirar o telefone do bolso. O Neuralis X integra-se perfeitamente ao seu estilo de vida digital.</p>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="glass-card p-6 rounded-xl flex flex-col gap-2">
+                <span class="material-symbols-outlined text-primary-container">phone_in_talk</span>
+                <h4 class="font-bold text-on-surface">Chamadas Bluetooth</h4>
+              </div>
+              <div class="glass-card p-6 rounded-xl flex flex-col gap-2">
+                <span class="material-symbols-outlined text-primary-container">alternate_email</span>
+                <h4 class="font-bold text-on-surface">Notificações Inteligentes</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Health Section -->
+    <section class="py-24 bg-background" id="saude">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Seu Assistente de Bem-Estar 24/7.</h2>
+          <div class="w-24 h-1 bg-primary-container mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Health Card 1 -->
+          <div class="glass-card p-8 rounded-2xl flex flex-col items-center text-center group hover:bg-white/10 transition-all animate-on-scroll">
+            <div class="w-20 h-20 rounded-full bg-red-500/10 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-red-500 text-4xl animate-heart" style="font-variation-settings: 'FILL' 1;">favorite</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-on-surface">Frequência Cardíaca</h3>
+            <p class="text-on-surface-variant text-sm">Monitoramento contínuo com precisão clínica para garantir que seu coração esteja sempre no ritmo certo.</p>
+          </div>
+          <!-- Health Card 2 (Imagem) -->
+          <div class="md:col-span-1 relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-on-scroll">
+            <img alt="Lifestyle Watch" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1O9nKgbRiArJfm9uiT2KkgpJzcyPsmLfuq-t_12LPyjoOA7OplQLmZ9Hl01HVc4xZJRgUBVrypv11waI0VjdH9QdGsBMpFqNEoi7o8OHAQ7z0XhYHEcC94-0LwDDXKyJOC7i8hcz1uAs1t0UPa5R1wmU2n6HLdyua1cqIqXfRvHixrTEmLyk83nQjVofMMraSWkk9H8UnShYsQYatFYDd0TX6eQeeGSmxm52kUZABO0FA5ariLEL2-jLXi8_cKHqpIhI" loading="lazy"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent flex flex-col justify-end p-8">
+              <span class="font-label-caps text-label-caps text-primary-container">DESIGN MASCULINO</span>
+              <p class="font-bold text-lg text-white">Exclusivo, cheio de estilo.</p>
+            </div>
+          </div>
+          <!-- Health Card 3 -->
+          <div class="glass-card p-8 rounded-2xl flex flex-col items-center text-center group hover:bg-white/10 transition-all animate-on-scroll">
+            <div class="w-20 h-20 rounded-full bg-blue-500/10 flex items-center justify-center mb-6">
+              <span class="material-symbols-outlined text-blue-500 text-4xl">bedtime</span>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-on-surface">Qualidade do Sono</h3>
+            <p class="text-on-surface-variant text-sm">Analise suas fases de sono leve, profundo e REM para acordar revigorado todos os dias.</p>
+          </div>
+        </div>
+        
+        <!-- Detalhes Extras de Saúde -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-on-scroll">
+          <div>
+            <h3 class="text-2xl font-bold mb-6 text-on-surface">Controle Total da Saúde</h3>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary-container">water_drop</span>
+                <span class="font-body-md text-on-surface">Pressão Arterial e Oxigenação</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary-container">glass_cup</span>
+                <span class="font-body-md text-on-surface">Lembretes de Hidratação</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="material-symbols-outlined text-primary-container">directions_run</span>
+                <span class="font-body-md text-on-surface">Monitoramento de Sedentarismo</span>
+              </li>
+            </ul>
+          </div>
+          <div class="relative">
+            <img alt="Sports Mode" class="w-full h-auto rounded-3xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSIwsJlNO437vubyGE1EvVD4I6Tpt64XN4tUlryuNLLjU1Myhs_d0gIwzW1saGPVTuMF8loHJyCfFNfZHbQL4aJSM1Wd7KG_whojw5w121zmQpC0e98azenuiQWVyQggFSauUnwfffaJhiqDRYdaIeJSoXX7y6k2voXFbRw9A8wNxzxPDubPLcyJ2WOAQrToqLCZiWxn9KUnQdqjFAjU5sQLTZpcMmWtZeb3A4uA5yTKIM-JFLOv9B1g" loading="lazy"/>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div class="w-24 h-24 rounded-full border-4 border-primary-container border-t-transparent animate-spin"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customization Section -->
+    <section class="py-24 bg-surface-container-low overflow-hidden">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+        <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-12 uppercase tracking-widest animate-on-scroll">
+          Várias Opções de Mostrador
+        </h2>
+        <div class="relative animate-on-scroll">
+          <div class="grid grid-cols-3 gap-4 max-w-4xl mx-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+            <div class="col-span-3 mb-8 relative group overflow-hidden rounded-3xl border border-primary-container/30">
+              <img alt="Solar Powered Watch Face" class="w-full h-96 object-cover hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfWuFro8OKYpsXMpqBtx7sh647iE_afcfheBqvT-bi1R-zzlSQbUKeIIR0TZU-hMGRUrA3g_AZDQsixWxQT6d3Oo__IFgblI-i8NjapwyaC7O40uwb-4qerGZmH9hoiodavnLQaU6SZ-3ccLEvB7_ZcRRUC4SutTaNYjft9ltad0MM2BXB3KjNz7aCA4-1Ut645oUl3uo4IOiQVK1KL1gT8CnTHfyIr5z_p-Hw0UBSQdd1nIDXovPiFw" loading="lazy"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent flex flex-col justify-end p-8">
+                <span class="font-label-caps text-label-caps text-primary-container text-left">EDIÇÃO GRAFENO</span>
+                <h3 class="text-2xl font-bold text-white text-left">Interface de Rede Atômica</h3>
+              </div>
+            </div>
+            <img alt="Classic Face" class="rounded-2xl object-cover h-full w-full hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdoUpisP_D2UjXF7CLcvOqSWmecnv3oXvBpxgUC2cKmeFKDTEMdygsGxppq-VAhXeYnuQMfNwLLUhxkgyxJEsNJs-zuJp4Z1hWi7-UrAONIoQha9wPYmD5XKYYNo1E1unqp02qrQtGLMMwi7drkbggZ8LiSAGFN5K-WiNaaED-HrI5VKkHrwVAI5PNbBF843f8Q44eB2zMZzhYLwjLW8bPV-xcqGKolKBPvSVdErCPArCGthuvirDAFg" loading="lazy"/>
+            <img alt="Minimalist Face" class="rounded-2xl object-cover h-full w-full hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9q2nL3k3OXoKlvePxalB2lT2NyaHPwvrvXht3QfndJDEQGmEzIAOdPIwsFSyB23XK3Ksy56oQfpm55BRCyAEPbzwKEg9xvZaobDWx4OEHw8tlspm_AfOvSKltzReFXH65vdXZD4Vw3COe5udb0Ynu7kVrkMGSuBMmcf-dPDz0rvmM5kB6OUI7vgAOIHU5KO5mddWbpE40iUX3gxCoW92NzGxyVDG-VZcZxhT5PwobRn3N-E7D_5Ktxg" loading="lazy"/>
+            <img alt="Tech Face" class="rounded-2xl object-cover h-full w-full hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSIwsJlNO437vubyGE1EvVD4I6Tpt64XN4tUlryuNLLjU1Myhs_d0gIwzW1saGPVTuMF8loHJyCfFNfZHbQL4aJSM1Wd7KG_whojw5w121zmQpC0e98azenuiQWVyQggFSauUnwfffaJhiqDRYdaIeJSoXX7y6k2voXFbRw9A8wNxzxPDubPLcyJ2WOAQrToqLCZiWxn9KUnQdqjFAjU5sQLTZpcMmWtZeb3A4uA5yTKIM-JFLOv9B1g" loading="lazy"/>
+          </div>
+          <div class="glow-cyan absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 -z-10"></div>
+        </div>
+        <p class="mt-12 text-on-surface-variant max-w-2xl mx-auto text-lg animate-on-scroll">Personalize sua interface para combinar com seu visual. Do executivo clássico ao esportivo dinâmico, o Neuralis X se adapta a você.</p>
+      </div>
+    </section>
+
+    <!-- Graphene Technology Section -->
+    <section class="py-24 bg-background relative overflow-hidden" id="tecnologia-grafeno">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div class="relative animate-on-scroll">
+            <div class="absolute -inset-4 bg-primary-container/10 blur-3xl rounded-full"></div>
+            <img alt="Graphene Structure Detail" class="relative z-10 w-full h-auto rounded-3xl border border-white/10 shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfWuFro8OKYpsXMpqBtx7sh647iE_afcfheBqvT-bi1R-zzlSQbUKeIIR0TZU-hMGRUrA3g_AZDQsixWxQT6d3Oo__IFgblI-i8NjapwyaC7O40uwb-4qerGZmH9hoiodavnLQaU6SZ-3ccLEvB7_ZcRRUC4SutTaNYjft9ltad0MM2BXB3KjNz7aCA4-1Ut645oUl3uo4IOiQVK1KL1gT8CnTHfyIr5z_p-Hw0UBSQdd1nIDXovPiFw" loading="lazy"/>
+          </div>
+          <div class="animate-on-scroll">
+            <span class="font-label-caps text-label-caps text-primary-container mb-4">TECNOLOGIA DE GRAFENO</span>
+            <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">Engenharia do Futuro.</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-10">O grafeno redefine o que é possível em um wearable. Mais forte que o diamante e mais leve que o alumínio, ele oferece a base para a próxima geração de performance.</p>
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary-container text-3xl">layers</span>
+                <div>
+                  <h4 class="font-bold text-lg text-on-surface">Design Ultra-fino</h4>
+                  <p class="text-sm text-on-surface-variant">Casing de compósito de grafeno com espessura mínima e resistência máxima.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary-container text-3xl">thermostat</span>
+                <div>
+                  <h4 class="font-bold text-lg text-on-surface">Eficiência Térmica Superior</h4>
+                  <p class="text-sm text-on-surface-variant">Gestão de calor passiva que mantém o dispositivo resfriado mesmo sob carga máxima.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-primary-container text-3xl">shield_moon</span>
+                <div>
+                  <h4 class="font-bold text-lg text-on-surface">Durabilidade Extrema</h4>
+                  <p class="text-sm text-on-surface-variant">Resistência a impactos e riscos sem precedentes na indústria de relógios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Models / Pricing Section -->
+    <section class="py-24 bg-surface-container-low relative overflow-hidden" id="modelos">
+      <div class="glow-cyan absolute -left-48 top-0 w-96 h-96"></div>
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <span class="font-label-caps text-label-caps text-primary-container">MODELOS</span>
+          <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">Escolha o Seu Neuralis</h2>
+          <div class="w-24 h-1 bg-primary-container mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Neuralis X -->
+          <div class="glass-card p-8 rounded-3xl flex flex-col animate-on-scroll">
+            <span class="font-label-caps text-label-caps text-primary-container mb-2">ENTRADA</span>
+            <h3 class="text-2xl font-bold text-on-surface mb-4">Neuralis X</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Performance essencial com a revolucionária tecnologia de grafeno.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-extrabold text-primary-container">R$ 7.500,00</span>
+              <span class="text-on-surface-variant block text-sm mt-1">à vista no PIX</span>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Bateria 40h
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Bluetooth 6.3
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Contador de Passos e Calorias
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Controle de Mídia
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Espelhamento de Notificações
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Ferramentas de Produtividade
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Monitoramento cardíaco
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Notificações Bluetooth
+              </li>
+            </ul>
+            <button class="bg-primary-container text-on-primary-container w-full py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all">
+              COMPRAR AGORA
+            </button>
+          </div>
+          <!-- Neuralis X Pro (Destaque) -->
+          <div class="glass-card p-8 rounded-3xl flex flex-col border-2 border-primary-container relative animate-on-scroll scale-105">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-container text-on-primary-container px-6 py-1 rounded-full text-xs font-bold font-label-caps whitespace-nowrap">MAIS VENDIDO</div>
+            <span class="font-label-caps text-label-caps text-primary-container mb-2 mt-4">INTERMEDIÁRIA</span>
+            <h3 class="text-2xl font-bold text-on-surface mb-4">Neuralis X Pro</h3>
+            <p class="text-on-surface-variant text-sm mb-6">Recursos avançados para quem exige mais do seu wearable.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-extrabold text-primary-container">R$ 12.000,00</span>
+              <span class="text-on-surface-variant block text-sm mt-1">à vista no PIX</span>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                +100 modos esportivos
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Análise Avançada de Sono
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Bateria 50h + carregamento rápido
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Bluetooth 6.3
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Chamadas Bluetooth + alto-falante
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Chamadas Telefônicas por Bluetooth
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Monitoramento cardíaco + SpO2
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Respostas Rápidas a Notificações
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Tela AMOLED com Always-On Display
+              </li>
+            </ul>
+            <button class="bg-primary-container text-on-primary-container w-full py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all">
+              COMPRAR AGORA
+            </button>
+          </div>
+          <!-- Neuralis X Ultra -->
+          <div class="glass-card p-8 rounded-3xl flex flex-col animate-on-scroll">
+            <span class="font-label-caps text-label-caps text-primary-container mb-2">PREMIUM</span>
+            <h3 class="text-2xl font-bold text-on-surface mb-4">Neuralis X Ultra</h3>
+            <p class="text-on-surface-variant text-sm mb-6">A experiência completa do grafeno em sua forma mais avançada.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-extrabold text-primary-container">R$ 18.700,00</span>
+              <span class="text-on-surface-variant block text-sm mt-1">à vista no PIX</span>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Bateria 72h + carregamento turbo
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Bluetooth 6.3
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Chamadas + música integrada
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Conectividade Bluetooth Avançada
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Detecção de Quedas e Acidentes
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Materiais de Alta Qualidade
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Monitoramento completo (coração, SpO2, pressão)
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                NFC para Pagamentos
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Resistência Militar (MIL-STD-810H)
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Respostas Inteligentes
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Telas Premium
+              </li>
+              <li class="flex items-center gap-3 text-sm text-on-surface-variant">
+                <span class="material-symbols-outlined text-primary-container text-sm">check</span>
+                Todos os modos esportivos + GPS integrado
+              </li>
+            </ul>
+            <button class="bg-primary-container text-on-primary-container w-full py-4 rounded-xl font-bold hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all">
+              COMPRAR AGORA
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specs Bento Grid -->
+    <section class="py-24 bg-background" id="especificacoes">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="mb-16 animate-on-scroll">
+          <span class="font-label-caps text-label-caps text-primary-container">ESPECIFICAÇÕES TÉCNICAS</span>
+          <h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">Poder sob o vidro.</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="md:col-span-2 glass-card p-10 rounded-3xl animate-on-scroll">
+            <span class="material-symbols-outlined text-4xl text-primary-container mb-4">sports_score</span>
+            <h3 class="text-2xl font-bold mb-4 text-on-surface">+100 Modos Esportivos</h3>
+            <p class="text-on-surface-variant">Corrida, ciclismo, natação, musculação e muito mais. Métricas precisas para cada modalidade.</p>
+          </div>
+          <div class="glass-card p-10 rounded-3xl flex flex-col justify-center items-center text-center animate-on-scroll">
+            <span class="text-5xl font-extrabold text-primary-container">40h</span>
+            <p class="font-label-caps mt-2 text-on-surface">Bateria de Longa Duração</p>
+          </div>
+          <div class="glass-card p-10 rounded-3xl flex flex-col justify-center items-center text-center animate-on-scroll">
+            <span class="material-symbols-outlined text-5xl text-primary-container">language</span>
+            <p class="font-label-caps mt-2 text-on-surface">Multi-idioma (PT/EN/ES)</p>
+          </div>
+          <div class="glass-card p-10 rounded-3xl animate-on-scroll">
+            <h4 class="font-bold text-primary-container mb-2">Display HD</h4>
+            <p class="text-sm text-on-surface-variant">Vidro temperado anti-risco com cores vibrantes mesmo sob sol forte.</p>
+          </div>
+          <div class="md:col-span-2 glass-card p-10 rounded-3xl flex items-center gap-8 animate-on-scroll">
+            <div class="flex-1">
+              <h4 class="font-bold text-primary-container mb-2">Resistência IP68</h4>
+              <p class="text-sm text-on-surface-variant">Pronto para qualquer desafio, do suor intenso à chuva inesperada.</p>
+            </div>
+            <span class="material-symbols-outlined text-6xl text-white/20">water_drop</span>
+          </div>
+          <div class="glass-card p-10 rounded-3xl animate-on-scroll">
+            <h4 class="font-bold text-primary-container mb-2">Bluetooth 6.3</h4>
+            <p class="text-sm text-on-surface-variant">Conexão estável e ultra rápida.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Authenticity / Guarantee Section -->
+    <section class="py-24 bg-surface-container-lowest border-y border-outline-variant" id="garantia">
+      <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row items-center justify-between gap-12 animate-on-scroll">
+        <div class="flex items-center gap-8">
+          <div class="w-24 h-24 rounded-full border-2 border-primary-container flex items-center justify-center p-2">
+            <span class="material-symbols-outlined text-5xl text-primary-container">verified</span>
+          </div>
+          <div>
+            <h3 class="text-3xl font-bold text-on-surface">Garantia de Originalidade</h3>
+            <p class="text-on-surface-variant mt-2">Qualidade Premium Certificada pela Neuralis X Brasil.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center p-4">
+            <span class="material-symbols-outlined text-3xl text-on-surface">shield</span>
+            <span class="text-xs mt-1 text-on-surface-variant">Compra Segura</span>
+          </div>
+          <div class="flex flex-col items-center p-4">
+            <span class="material-symbols-outlined text-3xl text-on-surface">local_shipping</span>
+            <span class="text-xs mt-1 text-on-surface-variant">Entrega Rápida</span>
+          </div>
+          <div class="flex flex-col items-center p-4">
+            <span class="material-symbols-outlined text-3xl text-on-surface">autorenew</span>
+            <span class="text-xs mt-1 text-on-surface-variant">7 Dias Devolução</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full py-12 bg-surface-container-lowest border-t border-outline-variant">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+            <circle cx="18" cy="18" r="16" stroke="#00f0ff" stroke-width="0.8" opacity="0.2"/>
+            <circle cx="18" cy="18" r="14" stroke="#00f0ff" stroke-width="0.3" stroke-dasharray="2 3" opacity="0.4"/>
+            <ellipse cx="18" cy="18" rx="14" ry="4" stroke="#00f0ff" stroke-width="0.6" opacity="0.6" transform="rotate(-30 18 18)"/>
+            <ellipse cx="18" cy="18" rx="14" ry="4" stroke="#00f0ff" stroke-width="0.6" opacity="0.6" transform="rotate(30 18 18)"/>
+            <ellipse cx="18" cy="18" rx="14" ry="4" stroke="#00f0ff" stroke-width="0.6" opacity="0.6" transform="rotate(90 18 18)"/>
+            <path d="M18 2L20 8H16L18 2Z" fill="#00f0ff" opacity="0.4"/>
+            <path d="M18 34L16 28H20L18 34Z" fill="#00f0ff" opacity="0.4"/>
+            <path d="M2 18L8 16V20L2 18Z" fill="#00f0ff" opacity="0.4"/>
+            <path d="M34 18L28 20V16L34 18Z" fill="#00f0ff" opacity="0.4"/>
+            <circle cx="18" cy="18" r="3" fill="#00f0ff"/>
+            <circle cx="18" cy="18" r="5" stroke="#00f0ff" stroke-width="0.5" opacity="0.4" stroke-dasharray="1 1"/>
+          </svg>
+          <span class="font-display-lg text-headline-lg-mobile text-on-surface font-extrabold tracking-tighter">NEURALIS X</span>
+        </div>
+        <p class="text-on-surface-variant mt-4 max-w-sm">© 2024 Neuralis X. Precisão em cada segundo. Todos os direitos reservados.</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-bold mb-2 text-on-surface">Suporte</h4>
+        <a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#">Termos de Uso</a>
+        <a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#">Privacidade</a>
+        <a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#">Suporte Técnico</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <h4 class="font-bold mb-2 text-on-surface">Rastreio</h4>
+        <a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#">Acompanhar Pedido</a>
+        <a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#">Minha Conta</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Sticky CTA -->
+  <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[60] transition-all duration-500 transform translate-y-24 opacity-0" id="sticky-cta">
+    <button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-bold shadow-[0_10px_30px_rgba(0,240,255,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center gap-4">
+      <span class="text-lg">Compre Agora</span>
+      <div class="w-px h-6 bg-on-primary-container/20"></div>
+      <span class="text-xl">Neuralis X Ultra - R$ 18.700,00</span>
+    </button>
+  </div>
+
+  <!-- Carregamento do Script Comportamental Principal (Módulo) -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block');
+
+/* -------------------------------------------------------------
+   Variáveis de Cores (Design Tokens do DESIGN.md)
+   ------------------------------------------------------------- */
+:root {
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-primary: #dbfcff;
+  --color-primary-fixed-dim: #00dbe9;
+  --color-primary-container: #00f0ff;
+  --color-on-primary-container: #006970;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #b9cacb;
+}
+
+/* -------------------------------------------------------------
+   Efeitos Visuais Customizados (Glassmorphism & Glows)
+   ------------------------------------------------------------- */
+
+/* Glassmorphism de alta qualidade conforme especificações do design */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Efeito Glow Ambiente (Electric Cyan) */
+.glow-cyan {
+  background: #00dbe9 !important;
+  filter: blur(80px) !important;
+  opacity: 0.15 !important;
+  pointer-events: none !important;
+  border-radius: 9999px !important;
+}
+
+/* Sombra de texto estilizada para destaque tipográfico no Hero */
+.hero-text-shadow {
+  text-shadow: 0 0 40px rgba(0, 220, 255, 0.25);
+}
+
+/* -------------------------------------------------------------
+   Animações Customizadas & Progressive Enhancement
+   ------------------------------------------------------------- */
+
+/* Estado inicial das animações apenas se o JavaScript estiver habilitado */
+.js-enabled .animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.js-enabled .hero-badge,
+.js-enabled .hero-title,
+.js-enabled .hero-desc,
+.js-enabled .hero-actions {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Pulso de batimento cardíaco para a seção de saúde */
+@keyframes heart-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+.animate-heart {
+  animation: heart-pulse 1.2s infinite ease-in-out !important;
+  display: inline-block;
+}
+
+/* Reset suave de rolagem */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Garante o efeito de paralaxe 3D nas imagens com transição suave */
+img[alt*="Face"], img[alt*="Watch"] {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
